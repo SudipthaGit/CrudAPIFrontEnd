@@ -1,0 +1,10 @@
+<div class="dialog-wrapper">
+  <h2 class="dialog-title">Update User</h2>
+  <input type="text"  placeholder="Email Id" class="styled-input" disabled  [(ngModel)]="userEmail"/>
+  <input type="text"  placeholder="Enter the new name..." class="styled-input" [(ngModel)]="updatedUserName" />
+
+  <div class="dialog-buttons">
+    <button class="submit-button" (click)="FnSubmit()">Submit</button>
+    <button class="reset-button" (click)="FnReset()">Reset</button>
+  </div>
+</div>

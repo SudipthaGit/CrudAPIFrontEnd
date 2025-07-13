@@ -1,0 +1,59 @@
+<div class="container">
+  <header class="modal-header">
+    <h1>CRUD API</h1>
+  </header>
+  <div class="row">
+    <div class="col-lg-5">
+      <div>
+        <input type="text" name="uname" id=""  [(ngModel)]="uname" class="form-control" placeholder="enter name..">
+      </div>
+      <br>
+      <div >
+        <input type="text" name="uemail" id="" [(ngModel)]="uemail" class="form-control" placeholder="enter email..">
+      </div>
+      <br>
+      <div >
+          <input type="password" name="upass" id="" [(ngModel)]="upass" class="form-control" placeholder="enter password..">
+      </div>
+      <br>
+      <div >
+        <input type="text" name="urole" id="" [(ngModel)]="urole" class="form-control" placeholder="enter role">
+      </div>
+      <br>
+      <div >
+        <button class="btn btn-sm btn-primary" (click)="FnInsertUser()">Insert User</button>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <h3>User Data:</h3>
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Update</th>
+          <th>Deactivate</th>
+        </tr>
+        @for(item of userList | paginate: { itemsPerPage: 5, currentPage: currentPage };track item._id ){
+        <tr>
+          <td>{{item.name}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.role}}</td>
+          <td>{{item.isActive}}</td>
+          <td>
+             <button class="btn btn-sm btn-success" (click)="FnUpdateUser(item.email)">Update</button>
+          </td>
+          <td>
+             <button class="btn btn-sm btn-danger" (click)="FnDeactivateUser(item.email)">Deactivate</button>
+          </td>
+        </tr>
+        }
+      </table>
+      <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+    </div>
+    
+    
+  </div>
+</div>
+
