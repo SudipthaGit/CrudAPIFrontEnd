@@ -1,0 +1,102 @@
+/* Card container styling */
+.form-card-container {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #f5f7fa; /* Revert to light blue-gray */
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px;
+}
+
+/* Header styling */
+.form-card-header {
+  border-bottom: 1px solid #444a57;
+  margin-bottom: 24px;
+}
+.form-card-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Form field styling */
+.form-card-group {
+  margin-bottom: 18px;
+}
+.form-card-label {
+  font-weight: 500;
+  color: #2c3e50;
+}
+.form-card-input {
+  background: #f9fafb;
+  color: #23272f;
+  border: 1.5px solid #bfc9d1;
+  width: 100%;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+.form-card-input:focus {
+  border-color: #5b9df9;
+  box-shadow: 0 0 0 2px #e3f0ff;
+  background: #fff;
+}
+.form-card-input::placeholder {
+  color: #a0a7b4;
+  opacity: 1;
+}
+
+.form-card-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.form-card-select {
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+.form-card-select-wrapper::after {
+  content: none;
+}
+
+.form-card-select option {
+  background: #fff;
+  color: #23272f;
+}
+
+/* Button group styling */
+.form-card-btn-group {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+.form-card-btn {
+  min-width: 90px;
+  border-radius: 6px;
+}
+.form-card-btn.btn-success {
+  background: #27ae60;
+  border: none;
+}
+.form-card-btn.btn-danger {
+  background: #e74c3c;
+  border: none;
+}
+
+/* Error message styling */
+.text-danger {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 4px;
+  margin-left: 2px;
+  letter-spacing: 0.1px;
+  font-weight: 500;
+}
