@@ -1,0 +1,91 @@
+<app-alert [message]="alertMessage"></app-alert>
+<div class="container">
+    <div class="form-card-container">
+        <header class="form-card-header">
+            <h3>Add User Details</h3>
+        </header>
+        <form #userform="ngForm" (ngSubmit)="onFormSubmit(userform)">
+            <div class="form-card-group">
+                <label for="name" class="form-card-label">Name</label>
+                <input type="text" [(ngModel)]="user.name" #nameref="ngModel" name="firstname"
+                    class="form-control form-card-input" placeholder="Enter name.." required>
+                @if(nameref.invalid && (nameref.dirty || nameref.touched))
+                {
+                <div class="text-danger">
+                    *Name is required
+                </div>
+                }
+            </div>
+            <div class="form-card-group">
+                <label for="email" class="form-card-label">Email</label>
+                <input type="text" [(ngModel)]="user.email" #emailref="ngModel" id="email" name="email"
+                    class="form-control form-card-input" placeholder="Enter Email..." required email>
+                @if(emailref.invalid && (emailref.dirty || emailref.touched))
+                {
+                @if(emailref.errors?.['required'])
+                {
+                <div class="text-danger">
+                    Email is required
+                </div>
+                }
+                @if(emailref.errors?.['email'])
+                {
+                <div class="text-danger">
+                    Email is invalid
+                </div>
+                }
+                }
+            </div>
+
+            <div class="form-card-group">
+                <label for="password" class="form-card-label">Password</label>
+                <input type="text" [(ngModel)]="user.password" #pwdref="ngModel" id="pwd" name="pwd"
+                    class="form-control form-card-input" placeholder="Enter Password..." required minlength="8">
+                @if(pwdref.invalid && (pwdref.dirty || pwdref.touched))
+                {
+                @if(pwdref.errors?.['required'])
+                {
+                <div class="text-danger">
+                    Password is required
+                </div>
+                }
+                @if(pwdref.errors?.['minlength'])
+                {
+                <div class="text-danger">
+                    Password must contains atleast 8 characters
+                </div>
+                }
+
+                }
+            </div>
+            <div class="form-card-group" style="margin-bottom: 24px;">
+                <label for="role" class="form-card-label">Role</label>
+                <div class="form-card-select-wrapper">
+                    <select name="role" class="form-control form-card-select" [(ngModel)]="user.role" #roleref="ngModel"
+                        required>
+                        <option value="">
+                            Select Role
+                        </option>
+                        <option value="Admin">
+                            Admin
+                        </option>
+                        <option value="User">
+                            User
+                        </option>
+                    </select>
+                    @if(roleref.invalid && (roleref.dirty || roleref.touched))
+                    {
+                    <div class="text-danger">
+                        Role is Required.
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="form-card-btn-group">
+                <button type="submit" [disabled]="!userform.form.valid"
+                    class="btn btn-sm btn-success form-card-btn">Submit</button>
+                <button class="btn btn-sm btn-danger form-card-btn" (click)="resetForm(userform)">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>

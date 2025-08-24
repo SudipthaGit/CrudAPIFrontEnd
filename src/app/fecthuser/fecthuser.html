@@ -1,0 +1,36 @@
+<div class="container">
+    <header class="modal-header">
+        <h3>User Details</h3>
+    </header>
+    <div class="table-responsive">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example row, replace with *ngFor="let user of users" for dynamic data -->
+                @for(item of userData;track item._id)
+                {
+                <tr>
+                    <td>{{item.name}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.role}}</td>
+                    <td>
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                    </td>
+                </tr>  
+                }
+                
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <button class="btn-sm btn-danger" (click)="logout()">Logout</button>
+    </div>
+</div>
